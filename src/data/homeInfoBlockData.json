@@ -1,0 +1,26 @@
+{
+    "info1": {
+        "id": "1",
+        "image": "/images/arrowIcon.png",
+        "heading": "PLAN",
+        "text": "We plan with ingenuity – Every landmark development starts with a roadmap for success. We analyze projects from every angle using a collaborative planning process that identifies efficiencies and anticipates issues.",
+        "buttonTxt": "PLANNING",
+        "link": "/about#planning"
+    },
+    "info2": {
+        "id": "2",
+        "image": "/images/arrowIcon.png",
+        "heading": "BUILD",
+        "text": "We build with integrity – Construction is the heart of what we do. We take ownership and pride in every project. With a focus on excellence, we aim to exceed expectations and deliver high quality projects on time and on budget.",
+        "buttonTxt": "CONSTRUCTION",
+        "link": "/about#construction"
+    },
+    "info3": {
+        "id": "3",
+        "image": "/images/arrowIcon.png",
+        "heading": "MANAGE",
+        "text": "We manage with assurance – Our knowledge and familiarity with each project allows us to manage properties throughout the life of the facility with expertise that delivers confidence and peace of mind to our clients.",
+        "buttonTxt": "MANAGEMENT",
+        "link": "/about#management"
+    }
+}

@@ -1,0 +1,316 @@
+/* Fonts */
+@font-face {
+    font-family: slimFont;
+    src: url('./fonts/Aileron-UltraLight.otf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: slimFont;
+    src: url('./fonts/Aileron-Thin.otf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: slimFont;
+    src: url('./fonts/Aileron-SemiBold.otf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: slimFont;
+    src: url('./fonts/Aileron-Bold.otf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: handWritten;
+    src: url('./fonts/dadha___.ttf');
+}
+
+@font-face {
+    font-family: handWritten2;
+    src: url('./fonts/NothingYouCouldDo.ttf');
+}
+
+/* General styling */
+.App{
+    text-align: center;
+    font-family: slimFont, Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: rgba(240, 237, 237, 1);
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nav Component Styles */
+
+.subNav {
+    display: none;
+}
+
+.navLogo {
+    margin: 0 0 .3vw 1vw;
+    height: 4.35vw;
+    max-height: 40px;
+    min-height: 23px;
+}
+
+.navLinkText {
+    color: #fff;
+    font-size: 1.8vw;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 5px 1vw;
+    margin: 0 1.2vw 0 0;
+}
+
+/* Banner Component Styles */
+.textCont2 {
+    display: none;
+}
+
+.bannerTxt {
+    color: #fff;
+    font-size: 8vw;
+    font-weight: 300;
+    line-height: 1em;
+}
+
+.buttonCont {
+    display: inline-block;
+}
+
+.bannerBtn {
+    font-size: 2.8vw;
+    border: none;
+    color: white;
+    padding: .75vw 4vw;
+    background: radial-gradient(circle, rgb(166, 25, 46) 0%, rgba(26,56,111,0) 100%);
+}
+
+.bannerBtn:hover {
+    animation-name: gradientButtonEffect;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+}
+
+/* ScalableInfoBlock Component Styles */
+.scalableInfoBlock {
+    display: flex;
+    flex-direction: column;
+    margin: 3vw 10vw;
+    min-height: 20vw;
+}
+
+.infoHeadingText {
+    font-size: 6vw;
+    font-weight: 300;
+    color: rgb(166, 25, 46);
+    margin: 0 2vw 0 2vw;
+}
+
+.infoBlText {
+    font-size: 2.5vw;
+    font-weight: 400;
+    color: rgba(44,42,41);
+    margin: 0vw 2.2vw 4vw 2.2vw;
+    flex: 2;
+    line-height: 3vw;
+    /* text-align: left; */
+}
+
+.infoBtnTxtBl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoBlBtn {
+    display: block;
+    background: url('/images/arrowIcon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 5vw;
+    height: 5vw;
+    margin: 0 0 0 2vw;
+}
+
+.infoBlBtnTxt {
+    margin: 0 0 0 2vw ;
+    color: rgba(44,42,41, .8);
+    font-size: 2.8vw;
+    font-weight: 400;
+}
+
+.infoBlBtnTxt:hover {
+    animation-name: gradientButtonEffect;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+}
+
+/* ProjectSpotlight Component Styles */
+.spotlightHeading {
+    color: #fff;
+    font-size: 4.5vw;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 20px 0 0 0;
+}
+
+/* LinkingInfoCard Component Styles*/
+.slidingContent {
+        background: rgba(44,42,41, .8);
+        position: relative;
+        top: 175px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 3px;
+}
+.slidingContent:hover {
+    animation-name: slideUp;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+}
+
+@media only screen and (min-width: 600px) {
+
+    /* Nav Component Styles*/
+    .subNav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 15px;
+        background: rgb(55,54,54);
+        color: white;
+    }
+
+    .navLogo {
+        margin: 0 0 .3vw 6vw;
+    }
+
+    .navLinkText {
+        font-size: 1.5vw;
+        font-weight: 500;
+        margin: 0 1.5vw 0 0;
+    }
+
+    /* Banner component styles */
+    .textCont2 {
+        display: block;
+        background: rgba(100,100,100,.5);
+        flex: 1;
+    }
+
+    .bannerTxt {
+        color: #fff;
+        margin: 3vw 0 3vw 0;
+        font-size: 4.5vw;
+        font-weight: 100;
+        text-align: left;
+        line-height: 1em;
+    }
+
+    .buttonCont {
+        float: left;
+        margin-top: 1vw;
+    }
+    
+    .bannerBtn {
+        height: 3vw;
+        padding: 0;
+        font-size: 1.5vw;
+    }
+
+    .bannerBtn:hover {
+        animation-name: gradientButtonEffectSm;
+        animation-duration: .6s;
+        animation-fill-mode: forwards;
+    }
+
+
+    /* ScalableInfoBlock Component Styles */
+
+    .scalableInfoBlock {
+        flex-direction: row;
+        margin: 2vw 5vw;
+        min-height: 30vw;
+    }
+
+    .infoHeadingText {
+        font-size: 3vw;
+        font-weight: 300;
+        text-align: left;
+    }
+
+    .infoBlText {
+        font-size: 1.9vw;
+        font-weight: 300;
+        line-height: 2.5vw;
+        text-align: left;
+    }
+
+    .infoBtnTxtBl {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .infoBlBtn {
+        width: 3.5vw;
+        height: 3.5vw;
+        margin: 0 0 0 1vw;
+    }
+
+    .infoBlBtnTxt {
+        margin: 0 0 0 1vw ;
+        font-size: 1.5vw;
+        font-weight: 400;
+    }
+
+    .infoBlBtnTxt:hover {
+        animation-name: gradientButtonEffectSm;
+        animation-duration: .6s;
+        animation-fill-mode: forwards;
+    }
+
+
+    /* ProjectSpotlight Component Styles */
+
+    .spotlightHeading {
+        font-size: 2.7vw;
+    }
+
+}
+
+/* Animations */
+@keyframes gradientButtonEffectSm {
+    from {font-size: 1.5vw;}
+    to {font-size: 2vw;}
+}
+
+@keyframes gradientButtonEffect {
+    from {font-size: 2.8vw;}
+    to {font-size: 4vw;}
+}
+
+@keyframes slideUp {
+    from {top: 175px;}
+    to {top: 0px;}
+}
+
+/* Color Palate: 
+    rgba(44,42,41) = dark
+    rgba(63, 73, 83, 1) = medium dark
+    #eff = off white
+    rgb(166, 25, 46) = red
+*/

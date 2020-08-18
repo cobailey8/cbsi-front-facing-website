@@ -1,0 +1,102 @@
+{
+    "modal1": {
+        "id": "1",
+        "image": "/images/pos.jpg",
+        "heading": "MASONRY",
+        "text": "We can do everyting from new installations, to repairing older installations. Repair/replacement of brick or stone, and even cutting & pointing failed masonry joints.",
+        "list": [
+            "Cutting & Pointing Failed Masonry Joints",
+            "Brick Repair / Replacement",
+            "Stone Repair / Replacement",
+            "Stone / Concrete Element Fabrication & Installation",
+            "New Masonry Installation",
+            "Masonry Repair",
+            "Custom Masonry"
+        ],
+        "buttonTxt": "MORE INFO",
+        "link": "/services#find1"
+    },
+    "modal2": {
+        "id": "2",
+        "image": "/images/hilton.jpg",
+        "heading": "CONCRETE REPAIR",
+        "text": "No job is too large, no job is too small. Garage or balcony repairs, patching (flat, vertical & overhead), structural & topping slab removal and more.",
+        "list": [
+            "Garage Repairs",
+            "Balcony Repairs",
+            "Concrete Patching (Flat, Vertical, & Overhead)",
+            "Structural & Topping Slab Removal & Replacement",
+            "Shotcrete Installation",
+            "Epoxy Injection",
+            "Painting & Specialty Coatings"
+        ],
+        "buttonTxt": "MORE INFO",
+        "link": "/services#find2"
+    },
+    "modal3": {
+        "id": "3",
+        "image": "/images/layingBricks.jpg",
+        "heading": "WATERPROOFING",
+        "text": "Garage/Balcony deck coating repairs/installation. We offer below grade and high performance vertical coating waterproofing installations. Sealant removal/replacement and more.",
+        "list": [
+            "Garage/Balcony Deck Coating Repairs & Installation",
+            "Below Grade Waterproofing Installation",
+            "High Performance Vertical Coating Installation",
+            "Sealant Removal & Replacement",
+            "Expansion Joint Repair & Installation"
+        ],
+        "buttonTxt": "MORE INFO",
+        "link": "/services#find3"
+    },
+    "modal4": {
+        "id": "4",
+        "image": "./images/services2.jpg",
+        "heading": "WINDOW RESTORATION / REPLACEMENT",
+        "text": "Historic wood/steel window repairs/replication, including glass replacement.",
+        "list": [
+            "Historic Wood Window Repairs / Replication",
+            "Historic Steel Window Repairs / Replication",
+            "Glass Replacement"
+        ],
+        "buttonTxt": "MORE INFO",
+        "link": "/services#find4"
+    },
+    "modal5": {
+        "id": "5",
+        "image": "./images/powerWashing.jpg",
+        "heading": "SURFACE CLEANING",
+        "text": "Sandblasting, High Pressure Waterblasting, Dry Ice Power Blasting, Chemical cleaning, and more.",
+        "list": [
+            "Sandblasting",
+            "High Pressure Waterblasting",
+            "Dry Ice Power Blasting",
+            "Chemical Cleaning"
+        ],
+        "buttonTxt": "MORE INFO",
+        "link": "/services#find5"
+    },
+    "modal6": {
+        "id": "6",
+        "image": "",
+        "heading": "ADDITIONAL SERVICES",
+        "text": "CBSI offers a wide range of other services, so if you didnt find what you need here, contact us for a quote and we'll be happy to offer other services, or point you in the right direction! ",
+        "list": [
+            "Property Turnover Rehabilitation Services & Construction",
+            "Painting",
+            "Preventative Maintenance",
+            "Building Envelope",
+            "Pressure Washing",
+            "Garage & Plaza Decks",
+            "Roofing",
+            "Inspection Services",
+            "Leak Inspections / Repairs",
+            "Leak Surveys & Capital Budgeting",
+            "Annual Window Cleaning",
+            "Annual Gutter Cleaning",
+            "Bird Deterrent Systems Installation",
+            "Hourly Leak Repairs"
+        ],
+        "buttonTxt": "MORE INFO",
+        "link": "/services#find6"
+    }
+}
