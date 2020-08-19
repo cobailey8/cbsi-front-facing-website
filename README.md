@@ -1,5 +1,25 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dev Info
+
+This project is currently optimized for mobile and will have releases for desktop as soon as I get around to the styling portion.
+
+
+### Known Bugs
+
+On mobile, the absolutely positioned nav bar dissapears when the user pulls the window down past the zeroed position. This is due to the shoddy nav bar animations I initially used, and will be fixed asap.
+
+
+### Deployment Parts
+
+The email form on the Contact page currently isnt set up for sending emails, nor does it notifiy the user when the form is submitted (other than clearing and resetting the form). Currently, it just logs the information as an object to the console.
+
+The default image for project/service data without images is just a placeholder, and will most likely be changed to a nicer image before deployment.
+
+Most of the bulk data is sent to components via JSON. I'm planning on building out a small CMS to allow the CBSI employees with certian permissions an easy way to change/add new projects and services on their own. I'm also playing with the idea of switching them over from mySQL to a noSQL DB so this can be done automatically/more easily.
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
