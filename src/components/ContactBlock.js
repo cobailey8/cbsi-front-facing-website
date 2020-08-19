@@ -104,6 +104,7 @@ function ContactBlock() {
     
     return (
 
+        //  If the user's window is below 600 width, display the small contact block component instead of this one.
         windowWidth >= 600 ? 
             <div className="contactBlock" style={ contactBlockCont }>
                 <div style={ leftBlock }>

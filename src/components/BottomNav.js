@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const nav = {
@@ -23,22 +23,40 @@ const linkText = {
 }
 
 function BottomNav() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+    }, [])
+
+    // Responsive Style Changes
+    var linkTextSm;
+    if(windowWidth < 600) {
+        linkTextSm = {
+            display: 'none',
+        }
+    }
+
     return (
         <nav style={ nav }>
                 <Link style= {link} to='/'>
-                    <div style={ linkText }>HOME</div>
+                    <div style={ linkTextSm || linkText }>HOME</div>
                 </Link>
                 <Link style= {link} to='/about'>
-                    <div style={ linkText }>ABOUT</div>
+                    <div style={ linkTextSm || linkText }>ABOUT</div>
                 </Link>
                 <Link style= {link} to='/services'>
-                    <div style={ linkText }>SERVICES</div>
+                    <div style={ linkTextSm || linkText }>SERVICES</div>
                 </Link>
                 <Link style= {link} to='/projects'>
-                    <div style={ linkText }>PROJECTS</div>
+                    <div style={ linkTextSm || linkText }>PROJECTS</div>
                 </Link>
                 <Link style= {link} to='/contact'>
-                    <div style={ linkText }>CONTACT</div>
+                    <div style={ linkTextSm || linkText }>CONTACT</div>
                 </Link>
         </nav>
     );
