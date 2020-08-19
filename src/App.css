@@ -233,7 +233,7 @@ body {
 
     .bannerBtn:hover {
         animation-name: gradientButtonEffectSm;
-        animation-duration: .6s;
+        animation-duration: .2s;
         animation-fill-mode: forwards;
     }
 
@@ -279,7 +279,7 @@ body {
 
     .infoBlBtnTxt:hover {
         animation-name: gradientButtonEffectSm;
-        animation-duration: .6s;
+        animation-duration: .2s;
         animation-fill-mode: forwards;
     }
 
