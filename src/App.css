@@ -49,29 +49,6 @@ body {
     flex-direction: column;
 }
 
-/* Nav Component Styles */
-
-/* .subNav {
-    display: none;
-}
-
-.navLogo {
-    margin: 0 0 .3vw 1vw;
-    height: 4.35vw;
-    max-height: 40px;
-    min-height: 23px;
-}
-
-.navLinkText {
-    color: #fff;
-    font-size: 1.8vw;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-decoration: none;
-    padding: 5px 1vw;
-    margin: 0 1.2vw 0 0;
-} */
-
 /* Banner Component Styles */
 .textCont2 {
     display: none;
@@ -160,7 +137,7 @@ body {
 .spotlightHeading {
     color: #fff;
     font-size: 4.5vw;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 2px;
     margin: 20px 0 0 0;
 }
@@ -183,26 +160,6 @@ body {
 }
 
 @media only screen and (min-width: 600px) {
-
-    /* Nav Component Styles*/
-    .subNav {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        height: 15px;
-        background: rgb(55,54,54);
-        color: white;
-    }
-
-    .navLogo {
-        margin: 0 0 .3vw 6vw;
-    }
-
-    .navLinkText {
-        font-size: 1.5vw;
-        font-weight: 500;
-        margin: 0 1.5vw 0 0;
-    }
 
     /* Banner component styles */
     .textCont2 {
@@ -287,7 +244,7 @@ body {
     /* ProjectSpotlight Component Styles */
 
     .spotlightHeading {
-        font-size: 2.7vw;
+        font-size: 3vw;
     }
 
 }

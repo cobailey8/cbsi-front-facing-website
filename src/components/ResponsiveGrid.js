@@ -9,7 +9,7 @@ const responsiveGrid = {
 
 const heading = {
     color: '#fff',
-    fontSize: '4vw',
+    fontSize: '3vw',
     fontWeight: '400',
     letterSpacing: '2px',
     margin: '3vw 0 1vw 0',
@@ -37,7 +37,7 @@ function ResponsiveGrid(props) {
     Object.keys(props.jsonData).forEach(key => dataArr.push(props.jsonData[key]));
 
     return (
-        <div style={ responsiveGrid } className="responsiveGrid">
+        <div style={ responsiveGrid } >
             <div style={ heading }>{props.heading}</div>
             <div style={ body }>
             {

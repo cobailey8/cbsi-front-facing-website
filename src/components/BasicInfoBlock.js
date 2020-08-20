@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
 const basicInfoBlock = {
-    // background: 'cyan',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -10,7 +9,6 @@ const basicInfoBlock = {
 }
 
 const headingCont = {
-    // background: 'yellow',
     color: 'rgb(166, 25, 46)',
     fontSize: '3.5vw',
     fontWeight: '300',
@@ -19,7 +17,6 @@ const headingCont = {
 }
 
 const subHeadingCont = {
-    // background: 'green',
     fontSize: '2.5vw',
     fontWeight: '500',
     padding: '1vw 1vw 3vw 1vw',
@@ -27,7 +24,6 @@ const subHeadingCont = {
 }
 
 const textCont = {
-    // background: 'red',
     fontSize: '2vw',
     fontWeight: '300',
     width: '90vw',
@@ -52,7 +48,7 @@ function BasicInfoBlock(props) {
     if(windowWidth < 600){
         headingContSm = {
             color: 'rgb(166, 25, 46)',
-            fontSize: '5vw',
+            fontSize: '6vw',
             fontWeight: '300',
             padding: '1vw 2vw 3vw 2vw',
             wordSpacing: '2vw',
@@ -64,10 +60,10 @@ function BasicInfoBlock(props) {
             width: '90vw',
         }
         textContSm ={
-            fontSize: '2.8vw',
+            fontSize: '3.5vw',
             fontWeight: '300',
             width: '90vw',
-            lineHeight: '4vw',
+            lineHeight: '5vw',
             padding: '1vw',
         }
     }

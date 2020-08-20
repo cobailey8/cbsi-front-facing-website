@@ -81,13 +81,13 @@ function ImageInfoBlock(props) {
             fontSize: '4.5vw',
             fontWeight: '400',
             letterSpacing: '2px',
-            margin: '20px 0 0 0',
+            margin: '3vw 0 2vw 0',
         
         }
 
         textContBlockSm = {
             fontSize: '2.8vw',
-            fontWeight: '300',
+            fontWeight: '400',
             margin: '0 3vw',
             letterSpacing: '.3vw',
         }
