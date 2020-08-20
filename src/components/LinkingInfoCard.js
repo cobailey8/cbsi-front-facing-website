@@ -10,7 +10,6 @@ const linkingInfoCardContainer = {
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',
-    // zIndex: '',
 }
 
 const imageContainer = {
