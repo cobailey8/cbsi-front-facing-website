@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 var prevScrollPos = window.pageYOffset;
+
 
 const navCont = {
     background: 'linear-gradient(180deg, rgba(0,0,0,0.5965346534653465) 37%, rgba(95,113,140,0) 99%)',
@@ -10,6 +11,15 @@ const navCont = {
     width: '100%',
     transition: 'top 0.3s',
     zIndex: '1000',
+}
+
+const subNav ={
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: '15px',
+    background: 'rgb(55,54,54)',
+    color: 'white',
 }
 
 const subNavLink = {
@@ -37,6 +47,13 @@ const navLogoCont = {
     alignItems: 'center'
 }
 
+const navLogo = {
+    margin: '0 0 .3vw 6vw',
+    height: '4.35vw',
+    maxHeight: '40px',
+    minHeight: '23px',
+}
+
 const navLinks = {
     width: '100%',
     display: 'flex',
@@ -46,14 +63,31 @@ const navLinks = {
     padding: '0 6vw 0 0',
 }
 
+const navLinkText = {
+    color: '#fff',
+    fontSize: '1.5vw',
+    fontWeight: '500',
+    letterSpacing: '1px',
+    textDecoration: 'none',
+    padding: '5px 1vw',
+    margin: '0 1.5vw 0 0',
+}
+
 const links = { textDecoration: 'none' }
 
 // ------------
 function Nav() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+    }
+
+    //  Function to handle scroll events and dissapearing nav bar
     function handleScroll() {
         var currentScrollPos = window.pageYOffset;
         var targetEle = document.getElementById('navCont');
+
         targetEle.style.top = prevScrollPos > currentScrollPos
             ? '0'
             : '-10vw';
@@ -67,39 +101,71 @@ function Nav() {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
         return() =>{
             window.removeEventListener('scroll', handleScroll);
+            window.addEventListener('resize', handleResize);
         }
     }, []);
+
+    var subNavSm;
+    var navLogoSm;
+    var navLinkTextSm;
+    var displNone;
+    if(windowWidth < 600) {
+        subNavSm = {
+            display: 'none',
+        }
+        
+        navLogoSm = {
+            margin: '0 0 .3vw 1vw',
+            height: '4.35vw',
+            maxHeight: '40px',
+            minHeight: '23px',
+        }
+        
+        navLinkTextSm = {
+            color: '#fff',
+            fontSize: '1.8vw',
+            fontWeight: '600',
+            letterSpacing: '1px',
+            textDecoration: 'none',
+            padding: '5px 1vw',
+            margin: '0 1.2vw 0 0',
+        }
+        displNone = {
+            display: 'none',
+        }
+    }
 
 
     return (
         <div style={navCont} id="navCont">
 
-            <div className="subNav">
+            <div style={ subNavSm || subNav } >
                 <a href="http://www.cbsi.co/ams" style={ subNavLink }>Employee Portal</a>
                 <Link style={ subNavLink } to="/contact">Contact Us</Link>
             </div>
 
             <nav style={ nav }>
             <Link style={ navLogoCont } to='/'>
-                <img src="/images/navLogo.png" alt="CBSI" className="navLogo"/>
+                <img src="/images/navLogo.png" alt="CBSI" style={ navLogoSm || navLogo } />
             </Link>
                 <ul style={ navLinks }>
                     <Link style={links} to='/'>
-                        <div className="navLinkText">HOME</div>
+                        <div style={ displNone || navLinkText } id="homeNavBtn" >HOME</div>
                     </Link>
                     <Link style={links} to='/about'>
-                        <div className="navLinkText">ABOUT</div>
+                        <div style={ navLinkTextSm || navLinkText }>ABOUT</div>
                     </Link>
                     <Link style={links} to='/services'>
-                        <div className="navLinkText">SERVICES</div>
+                        <div style={ navLinkTextSm || navLinkText }>SERVICES</div>
                     </Link>
                     <Link style={links} to='/projects'>
-                        <div className="navLinkText">OUR PROJECTS</div>
+                        <div style={ navLinkTextSm || navLinkText }>OUR PROJECTS</div>
                     </Link>
                     <Link style={links} to='/contact'>
-                        <div className="navLinkText">CONTACT</div>
+                        <div style={ navLinkTextSm || navLinkText }>CONTACT</div>
                     </Link>
                 </ul>
             </nav>
