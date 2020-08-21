@@ -78,7 +78,7 @@ const links = {
 const navLinkText = {
     width: '95%',
     color: 'white',
-    fontSize: '6vw',
+    fontSize: '4vw',
     padding: '2.5vh 10px 2.5vh 0',
     display: 'flex',
     justifyContent: 'flex-end',

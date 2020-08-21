@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import LinkingInfoCard from './LinkingInfoCard';
 
 const responsiveGrid = {
@@ -32,13 +32,39 @@ const gridItem = {
 }
 
 function ResponsiveGrid(props) {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return() =>{
+            window.removeEventListener('resize', handleResize);
+        }
+    }, []);
+
+    var headingSm;
+    if(windowWidth < 600) {
+        headingSm = {
+            color: '#fff',
+            fontSize: '4.5vw',
+            fontWeight: '400',
+            letterSpacing: '2px',
+            margin: '3vw 0 1vw 0',
+            WebkitTextStrokeWidth: '1px',
+            WebkitTextStrokeColor: '#eff',
+            textShadow: '1px 1px rgba( 0, 0, 0, .3 )',
+        }
+    }
 
     var dataArr = [];
     Object.keys(props.jsonData).forEach(key => dataArr.push(props.jsonData[key]));
 
     return (
         <div style={ responsiveGrid } >
-            <div style={ heading }>{props.heading}</div>
+            <div style={ headingSm || heading }>{props.heading}</div>
             <div style={ body }>
             {
                 //Output a Modal component for each object in dataArr
