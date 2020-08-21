@@ -5,11 +5,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This project is currently optimized for mobile and will have releases for desktop as soon as I get around to the styling portion.
 
 
-### Known Bugs
-
-On mobile, the absolutely positioned nav bar dissapears when the user pulls the window down past the zeroed position. This is due to the shoddy nav bar animations I initially used, and will be fixed asap.
-
-
 ### Deployment Parts
 
 The email form on the Contact page currently isnt set up for sending emails, nor does it notifiy the user when the form is submitted (other than clearing and resetting the form). Currently, it just logs the information as an object to the console.
