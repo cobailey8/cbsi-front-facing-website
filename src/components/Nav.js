@@ -4,7 +4,6 @@ import HamburgerNav from './HamburgerNav';
 
 var prevScrollPos = window.pageYOffset;
 
-
 const navCont = {
     background: 'linear-gradient(180deg, rgba(0,0,0,0.5965346534653465) 37%, rgba(95,113,140,0) 99%)',
     position: 'fixed',
@@ -49,7 +48,7 @@ const navLogoCont = {
 }
 
 const navLogo = {
-    margin: '0 0 .3vw 6vw',
+    margin: '0 0 .3vw 4vw',
     height: '4.35vw',
     maxHeight: '40px',
     minHeight: '23px',
@@ -61,16 +60,16 @@ const navLinks = {
     justifyContent: 'flex-end',
     alignItems: 'center',
     listStyle: 'none',
-    padding: '0 6vw 0 0',
+    padding: '0 5vw 0 0',
 }
 
 const navLinkText = {
     color: '#fff',
-    fontSize: '1.5vw',
-    fontWeight: '500',
+    fontSize: '13px',
+    fontWeight: '400',
     letterSpacing: '1px',
     textDecoration: 'none',
-    padding: '5px 1vw',
+    padding: '4px 1vw',
     margin: '0 1.5vw 0 0',
 }
 

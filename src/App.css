@@ -74,7 +74,7 @@ body {
 }
 
 .bannerBtn:hover {
-    animation-name: gradientButtonEffect;
+    animation-name: textGrowEffect;
     animation-duration: .6s;
     animation-fill-mode: forwards;
 }
@@ -189,7 +189,7 @@ body {
     }
 
     .bannerBtn:hover {
-        animation-name: gradientButtonEffectSm;
+        animation-name: textGrowEffectSm;
         animation-duration: .2s;
         animation-fill-mode: forwards;
     }
@@ -199,12 +199,14 @@ body {
 
     .scalableInfoBlock {
         flex-direction: row;
-        margin: 2vw 5vw;
+        padding: 2vw 5vw;
+        margin: auto;
         min-height: 30vw;
+        max-width: 1000px;
     }
 
     .infoHeadingText {
-        font-size: 3vw;
+        font-size: 30px;
         font-weight: 300;
         text-align: left;
     }
@@ -235,7 +237,7 @@ body {
     }
 
     .infoBlBtnTxt:hover {
-        animation-name: gradientButtonEffectSm;
+        animation-name: textGrowEffectSm;
         animation-duration: .2s;
         animation-fill-mode: forwards;
     }
@@ -249,15 +251,70 @@ body {
 
 }
 
+@media only screen and (min-width: 1280px) {
+
+    /* ScalableInfoBlock Component Styles */
+
+    .scalableInfoBlock {
+        flex-direction: row;
+        padding: 0vw 5vw;
+        margin: auto;
+        min-height: 30vw;
+        max-width: 1000px;
+    }
+
+    .infoHeadingText {
+        font-size: 40px;
+        font-weight: 300;
+        text-align: left;
+    }
+
+    .infoBlText {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 30px;
+        text-align: left;
+    }
+
+    .infoBtnTxtBl {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .infoBlBtn {
+        width: 3vw;
+        height: 3vw;
+        margin: 0 0 0 1vw;
+    }
+
+    .infoBlBtnTxt {
+        margin: 0 0 0 1vw ;
+        font-size: 1.2vw;
+        font-weight: 400;
+    }
+
+    .infoBlBtnTxt:hover {
+        animation-name: textGrowEffectLg;
+        animation-duration: .2s;
+        animation-fill-mode: forwards;
+    }
+}
+
 /* Animations */
-@keyframes gradientButtonEffectSm {
+@keyframes textGrowEffectSm {
     from {font-size: 1.5vw;}
     to {font-size: 2vw;}
 }
 
-@keyframes gradientButtonEffect {
+@keyframes textGrowEffect {
     from {font-size: 2.8vw;}
     to {font-size: 4vw;}
+}
+
+@keyframes textGrowEffectLg {
+    from {font-size: 1.2vw;}
+    to {font-size: 1.8vw;}
 }
 
 @keyframes slideUp {

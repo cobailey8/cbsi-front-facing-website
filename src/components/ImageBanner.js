@@ -1,24 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 // Styles
 
-const homeBannerImg = {
+var homeBannerImg = {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     height: '60vw',
-    margin: '0 0 0 0',
 }
 
 const textCont1 = {
     background: 'rgba(26,56,111,.5)',
-    padding: '10vw 0 0 6vw',
-    flex: '1',
-
+    padding: '10vw 1vw 0 5vw',
+    flex: 1,
 }
 
 function ImageBanner(props) {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const img = {
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+    }, [])
+
+    homeBannerImg = {   // Adding image prop to the banner
+        ...homeBannerImg,
         backgroundImage: `url('${props.image}')`,
         backgroundRepeat: 'no-repeat',
         display: 'flex',
@@ -26,9 +34,31 @@ function ImageBanner(props) {
         overflow: 'hidden',
     }
 
+    var homeBannerImgR;
+    var textCont1R;
+    if(windowWidth > 600 && windowWidth < 1280){    // Styling for tablets & small laptops
+        
+    }else if(windowWidth >= 1280) {     // Styling for Desktop
+        homeBannerImgR = {
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            height: '45vw',
+            backgroundImage: `url('${props.image}')`,
+            backgroundRepeat: 'no-repeat',
+            display: 'flex',
+            overflow: 'hidden',
+        }
+
+        textCont1R = {
+            background: 'rgba(26,56,111,.5)',
+            padding: '150px 0 0 50px',
+            flex: '1',
+        }
+    }
+
     return (
-        <div style={ {...homeBannerImg, ...img} }>
-            <div style={ textCont1 }>
+        <div style={ homeBannerImgR || homeBannerImg }>
+            <div style={ textCont1R || textCont1 }>
                 <h2 className="bannerTxt">
                     {props.line1}
                     <br/>
