@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-
-
 //  Mobile Styling
 const basicInfoBlock = {
     display: 'flex',
@@ -37,12 +35,8 @@ const textCont = {
 function BasicInfoBlock(props) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
     }, [])
 
     var basicInfoBlockR;

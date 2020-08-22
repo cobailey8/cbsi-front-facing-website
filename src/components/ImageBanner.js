@@ -17,12 +17,8 @@ const textCont1 = {
 function ImageBanner(props) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
     }, [])
 
     homeBannerImg = {   // Adding image prop to the banner

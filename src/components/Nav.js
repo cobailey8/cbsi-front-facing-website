@@ -79,10 +79,6 @@ const links = { textDecoration: 'none' }
 function Nav() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
     //  Function to handle scroll events and dissapearing nav bar
     function handleScroll() {
 
@@ -103,12 +99,8 @@ function Nav() {
     }
 
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
         window.addEventListener('scroll', handleScroll);
-        return() =>{
-            window.removeEventListener('resize', handleResize);
-            window.removeEventListener('scroll', handleScroll);
-        }
     }, []);
 
     return windowWidth >= 600 ? 

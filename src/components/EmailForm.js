@@ -71,12 +71,8 @@ function EmailForm(props) {
     const {register, handleSubmit, errors} = useForm();
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
     }, [])
 
     // Responsive Style changes 

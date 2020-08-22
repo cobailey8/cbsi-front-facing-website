@@ -28,40 +28,48 @@ const logoImg = {
 function Footer() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
     }, [])
 
     //  Responsive style changes
-    var copyrightSm;
-    var imgContSm;
-    if(windowWidth < 600) {
+    var copyrightR;
+    var imgContR;
+    if(windowWidth <= 600) {
 
         // Mobile styles(< 600)
-        copyrightSm = {
+        copyrightR = {
             fontSize: '2.3vw',
             fontWeight: '300',
             letterSpacing: '1px',
             margin: '0 0 2vw 0',
         }
 
-        imgContSm = {
+        imgContR = {
             width: '20vw',
+        }
+    }else if(windowWidth >= 1280) {
+        // Desktop styles(> 1280)
+        copyrightR = {
+            fontSize: '1.5vw',
+            fontWeight: '300',
+            letterSpacing: '1px',
+            margin: '0 0 1vw 0',
+        }
+
+        imgContR = {
+            width: '200px',
         }
     }
 
     return (
         <div style={ footer }>
-            <div style={ imgContSm || imgCont }>
+            <div style={ imgContR || imgCont }>
                 <img src="/images/cbsiLogo.png" alt="CBSI Logo" style={ logoImg }/>
                 <BottomNav />
             </div>
 
-    <p style={ copyrightSm || copyright }>Copyright © {new Date().getFullYear()} CBSI. All rights reserved.</p>
+    <p style={ copyrightR || copyright }>Copyright © {new Date().getFullYear()} CBSI. All rights reserved.</p>
         </div>
     );
 }

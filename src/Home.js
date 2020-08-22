@@ -4,7 +4,6 @@ import ImageBanner from './components/ImageBanner';
 // Component Imports
 import Spotlight from './components/ProjectSpotlight';
 import ContactBlock from './components/ContactBlock';
-// import ContactBlockSm from './components/ContactBlockSm';
 import Footer from './components/Footer';
 import ScalableInfoBlock from './components/ScalableInfoBlock';
 
@@ -30,7 +29,6 @@ function Home() {
                 buttonLink="/services"
             />
 
-            {/* This component is responsible for the main text block in the home page ('plan build manage')*/}
             <ScalableInfoBlock jsonData={ InfoData }/>
 
             <Spotlight heading="Projects Spotlight" jsonData={ ProjectsData }/>

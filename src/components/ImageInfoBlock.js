@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 var imageInfoBlock = {
     background: 'red',
-    padding: '3vw',
+    padding: '2vw',
     display: 'flex',
     justifyContent: 'center',
 }
@@ -11,7 +11,8 @@ var cont = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    maxWidth: '1100px',
+    maxWidth: '1000px',
+    width: '100%',
 }
 
 var imgCont = {
@@ -38,32 +39,28 @@ var textBl = {
 }
 
 var headerContBlock = {
-    // background: 'red',
-    fontSize: '25px',
+    fontSize: '24px',
     fontWeight: '400',
-    margin: '0 0 2.5vw 0',
-    padding: '0 0 0 2.3vw',
+    minWidth: '300px',
+    width: '95%',
+    margin: '0 0 1vw 0',
+    padding: '0 0 0 2vw',
 }
 
 var textContBlock = {
-    // background: 'cyan',
-    width: '90%',
+    width: '95%',
     height: '85%',
     fontSize: '17px',
     fontWeight: '300',
     display: 'flex',
-    margin: '0 0 0 2.3vw',
+    margin: '0 0 0 2vw',
 }
 
 function ImageInfoBlock(props) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
     }, [])
 
     // Dark theme or light theme based on props. default is light.
@@ -78,19 +75,19 @@ function ImageInfoBlock(props) {
 
 
     // Display right to left, or left to right based on the 'flip' prop. Also takes care of mobile styling
-    var imgSm;
-    var headerContBlockSm;
-    var textContBlockSm;
+    var imgR;
+    var headerContBlockR;
+    var textContBlockR;
     if(windowWidth < 600){  // 'flip' prop doesn't matter here becauuse flexDirection has to be set to 'column'
 
         cont = { ...cont, flexDirection: 'column' };
 
-        imgSm = {
+        imgR = {
             width: '100%',
             borderRadius: '7px',
         }
 
-        headerContBlockSm = {
+        headerContBlockR = {
             display: 'flex',
             justifyContent: 'center',
             fontSize: '4.5vw',
@@ -100,7 +97,7 @@ function ImageInfoBlock(props) {
         
         }
 
-        textContBlockSm = {
+        textContBlockR = {
             fontSize: '2.8vw',
             fontWeight: '400',
             margin: '0 3vw',
@@ -114,33 +111,35 @@ function ImageInfoBlock(props) {
     }
 
     if(windowWidth >= 1280) {
-        headerContBlockSm = {
+        headerContBlockR = {
+            width: '90%',
+            minWidth: '600px',
             fontSize: '30px',
             fontWeight: '400',
-            margin: '0 0 2vw 0',
-            padding: '0 0 0 2.3vw',
+            margin: '0 0 1vw 0',
+            padding: '0 0 0 10px',
         
         }
 
-        textContBlockSm = {
-            width: '90%',
+        textContBlockR = {
+            width: '95%',
             height: '85%',
             fontSize: '20px',
             fontWeight: '300',
             display: 'flex',
-            margin: '0 0 0 2.3vw',
+            margin: '0 0 0 1vw',
         }
     }
 
     return (
         <div style={ imageInfoBlock }>
             <div style={ cont } className="imageInfoBlock" id={"find"+props.id}>
-                <div style={ imgCont }><img src={ props.image || './images/placeholder.jpg' } alt={props.headding} style={ imgSm || img } /></div>
+                <div style={ imgCont }><img src={ props.image || './images/placeholder.jpg' } alt={props.headding} style={ imgR || img } /></div>
                 <div style={ textBl }>
-                    <div style={headerContBlockSm || headerContBlock}>
+                    <div style={headerContBlockR || headerContBlock}>
                         {props.headerContent}
                     </div>
-                    <div style={textContBlockSm || textContBlock}>
+                    <div style={textContBlockR || textContBlock}>
                         {props.textContent}
                     </div>
                 </div>
