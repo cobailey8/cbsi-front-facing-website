@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Still under developement.
 
+All components are custom built. Most text is placeholder text and wont be used in production. Most images are placeholders and wont be used in production.
+
 This project is currently optimized for mobile and will have releases for desktop as soon as I get around to the styling portion. 
 
 
