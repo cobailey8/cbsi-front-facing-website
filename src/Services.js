@@ -58,8 +58,6 @@ function Services() {
                             
                             dataList += '</ul>';
                         }
-
-                        console.log("find"+item.id);
                         
                         return item.image !== "" ? 
                             <ImageInfoBlock 

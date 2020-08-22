@@ -60,8 +60,18 @@ function ImageInfoBlock(props) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
-    }, [])
+
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+
+    }, []);
 
     // Dark theme or light theme based on props. default is light.
     var color = props.isDark 

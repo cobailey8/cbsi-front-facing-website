@@ -78,29 +78,43 @@ const links = { textDecoration: 'none' }
 // ------------
 function Nav() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    
+    useEffect(() => {
 
-    //  Function to handle scroll events and dissapearing nav bar
-    function handleScroll() {
-
-        var currentScrollPos = window.pageYOffset;
-        var targetEle = document.getElementById('navCont');
-
-        if(targetEle !== null){
-            targetEle.style.top = prevScrollPos > currentScrollPos
-                ? '0'
-                : '-100px';
-
-            targetEle.style.background = currentScrollPos > 50 
-                ? 'linear-gradient(180deg, rgba(0,0,0,1) 11%, rgba(33,33,33,1) 81%)'
-                : 'linear-gradient(180deg, rgba(0,0,0,0.5965346534653465) 37%, rgba(95,113,140,0) 99%)';
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
         }
 
-        prevScrollPos = currentScrollPos;
-    }
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+
+    }, []);
 
     useEffect(() => {
-        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
+        //  Function to handle scroll events and dissapearing nav bar
+        function handleScroll() {
+
+            var currentScrollPos = window.pageYOffset;
+            var targetEle = document.getElementById('navCont');
+
+            if(targetEle !== null){
+                targetEle.style.top = prevScrollPos > currentScrollPos
+                    ? '0'
+                    : '-100px';
+
+                targetEle.style.background = currentScrollPos > 50 
+                    ? 'linear-gradient(180deg, rgba(0,0,0,1) 11%, rgba(33,33,33,1) 81%)'
+                    : 'linear-gradient(180deg, rgba(0,0,0,0.5965346534653465) 37%, rgba(95,113,140,0) 99%)';
+            }
+
+            prevScrollPos = currentScrollPos;
+        }
+
         window.addEventListener('scroll', handleScroll);
+
     }, []);
 
     return windowWidth >= 600 ? 

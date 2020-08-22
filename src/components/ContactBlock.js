@@ -94,10 +94,19 @@ function ContactBlock() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
-    }, [])
 
-    
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+
+    }, []);
+
     return (
 
         //  If the user's window is below 600 width, display the small contact block component instead of this one.

@@ -28,9 +28,20 @@ const logoImg = {
 function Footer() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+
     useEffect(() => {
-        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
-    }, [])
+
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+
+    }, []);
 
     //  Responsive style changes
     var copyrightR;

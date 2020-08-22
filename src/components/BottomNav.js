@@ -25,13 +25,19 @@ const linkText = {
 function BottomNav() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
     useEffect(() => {
+
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
+
         window.addEventListener('resize', handleResize);
-    }, [])
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+
+    }, []);
 
     // Responsive Style Changes
     var linkTextSm;

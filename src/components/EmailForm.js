@@ -82,8 +82,8 @@ const confirmationMessage = {
     top: '50%',
     left: '50%',
     margin: '-75px 0 0 -200px',
-    webkitTextStrokeWidth: '1px',
-    webkitTextStrokeColor: 'rgba(0,0,0, .5)',
+    WebkitTextStrokeWidth: '1px',
+    WebkitTextStrokeColor: 'rgba(0,0,0, .5)',
 }
 
 const confirmImg = {
@@ -95,10 +95,21 @@ const confirmImg = {
 function EmailForm(props) {
     const {register, handleSubmit, errors} = useForm();
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    
 
     useEffect(() => {
-        window.addEventListener('resize', () => setWindowWidth((window.innerWidth)));
-    }, [])
+
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
+
+    }, []);
 
     // Responsive Style changes 
     var headingSm;
@@ -185,8 +196,8 @@ function EmailForm(props) {
             top: '50%',
             left: '50%',
             margin: '-37px 0 0 -100px',
-            webkitTextStrokeWidth: '1px',
-            webkitTextStrokeColor: 'rgba(0,0,0, .6)',
+            WebkitTextStrokeWidth: '1px',
+            WebkitTextStrokeColor: 'rgba(0,0,0, .6)',
         }
 
         confirmImgSm = {
