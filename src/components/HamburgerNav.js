@@ -11,7 +11,7 @@ const nav = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: '40px', 
+    height: '50px', 
 }
 
 const navLogoCont = {
@@ -23,7 +23,7 @@ const navLogoCont = {
 }
 
 const navLogo = {
-    height: '30px',
+    height: '35px',
 }
 
 const hbIconCont = {
@@ -34,7 +34,7 @@ const hbIconCont = {
 }
 
 const hbIcon = {
-    height: 'inherit',
+    height: '38px',
     padding: '0 25px 0 40px',
 }
 
@@ -48,7 +48,7 @@ const dropMenu = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRight: '5px solid white',
+    borderRight: '3px solid white',
     zIndex: '1000',
 }
 
@@ -61,7 +61,6 @@ const mask = {
 }
 
 const navLinks = {
-    // background: 'red',
     width: '100%',
     height: '60%',
     padding: 0,
@@ -69,7 +68,6 @@ const navLinks = {
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderRadius: '0 50% 50% 0',
 }
 const links = {
     textDecoration: 'none',
@@ -78,7 +76,7 @@ const links = {
 const navLinkText = {
     width: '95%',
     color: 'white',
-    fontSize: '4vw',
+    fontSize: '5vw',
     padding: '2.5vh 10px 2.5vh 0',
     display: 'flex',
     justifyContent: 'flex-end',

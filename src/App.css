@@ -185,8 +185,8 @@ body {
     
     .bannerBtn {
         height: 3vw;
-        padding: 0;
         font-size: 1.5vw;
+        padding: 0 3vw;
     }
 
     .bannerBtn:hover {
@@ -254,6 +254,34 @@ body {
 
 /* Large and Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1280px) {
+
+    /* Banner component styles */
+
+    .bannerTxt {
+        margin: 3.5vw 0 2vw 2vw;
+        font-size: 4vw;
+        font-weight: 100;
+        text-align: left;
+        line-height: 1em;
+    }
+
+    .buttonCont {
+        float: left;
+        margin-top: 1vw;
+    }
+    
+    .bannerBtn {
+        height: 2vw;
+        font-size: 1.2vw;
+        padding: 0 1vw;
+        margin: 0 0 0 2vw;
+    }
+
+    .bannerBtn:hover {
+        animation-name: textGrowEffectLg;
+        animation-duration: .2s;
+        animation-fill-mode: forwards;
+    }
 
     /* ScalableInfoBlock Component Styles */
 

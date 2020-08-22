@@ -10,7 +10,7 @@ var homeBannerImg = {
 
 const textCont1 = {
     background: 'rgba(26,56,111,.5)',
-    padding: '10vw 1vw 0 5vw',
+    padding: '3vw 0 0 0',
     flex: 1,
 }
 
@@ -43,7 +43,11 @@ function ImageBanner(props) {
     var homeBannerImgR;
     var textCont1R;
     if(windowWidth > 600 && windowWidth < 1280){    // Styling for tablets & small laptops
-        
+        textCont1R = {
+            background: 'rgba(26,56,111,.5)',
+            padding: '100px 0 0 50px',
+            flex: '1',
+        }
     }else if(windowWidth >= 1280) {     // Styling for Desktop
         homeBannerImgR = {
             backgroundPosition: 'center',
@@ -57,7 +61,7 @@ function ImageBanner(props) {
 
         textCont1R = {
             background: 'rgba(26,56,111,.5)',
-            padding: '150px 0 0 50px',
+            padding: '100px 0 0 50px',
             flex: '1',
         }
     }
