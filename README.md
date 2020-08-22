@@ -2,7 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Dev Info
 
-This project is currently optimized for mobile and will have releases for desktop as soon as I get around to the styling portion.
+Still under developement.
+
+This project is currently optimized for mobile and will have releases for desktop as soon as I get around to the styling portion. 
 
 
 ### Deployment Parts
