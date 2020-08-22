@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useForm } from 'react-hook-form';
 
-const emailFormCont = {
-    // background: 'red',
-
-}
+const emailFormCont = {}
 
 const errorMsgBlock = {
     background: 'rgba(255, 0, 0, .25)',
@@ -67,6 +64,34 @@ const submitBtn = {
     borderRadius: '100px',
 }
 
+const confirmationMessage = {
+    background: 'rgba(0,230,0,.4)',
+    color: 'white',
+    width: '400px',
+    height: '150px',
+    border: '1px solid rgba(0,0,0, .3)',
+    borderRadius: '20px',
+    fontSize: '45px',
+    fontWeight: '400',
+    letterSpacing: '3px',
+    display: 'none',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    margin: '-75px 0 0 -200px',
+    webkitTextStrokeWidth: '1px',
+    webkitTextStrokeColor: 'rgba(0,0,0, .5)',
+}
+
+const confirmImg = {
+    width: '50px',
+    height: '50px',
+    margin: '0 2vw'
+}
+
 function EmailForm(props) {
     const {register, handleSubmit, errors} = useForm();
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -82,6 +107,8 @@ function EmailForm(props) {
     var submitBtnSm;
     var errorMsgBlockSm;
     var errorSm;
+    var confirmationMessageSm;
+    var confirmImgSm;
     if(windowWidth < 600) {
 
         headingSm = {
@@ -140,9 +167,34 @@ function EmailForm(props) {
             fontWeight: '400',
             margin: '.7vw',
         }
+
+        confirmationMessageSm = {
+            background: 'rgba(0,230,0,.35)',
+            color: 'white',
+            width: '200px',
+            height: '74px',
+            border: '1px solid rgba(0,0,0, .3)',
+            borderRadius: '20px',
+            fontSize: '30px',
+            fontWeight: '400',
+            letterSpacing: '3px',
+            display: 'none',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            margin: '-37px 0 0 -100px',
+            webkitTextStrokeWidth: '1px',
+            webkitTextStrokeColor: 'rgba(0,0,0, .6)',
+        }
+
+        confirmImgSm = {
+            width: '30px',
+            height: '40px',
+            margin: '0 2vw'
+        }
     }
-
-
 
     // const errorDiv = document.getElementById('errorDiv');
     const nameInput = document.getElementById('name');
@@ -151,8 +203,16 @@ function EmailForm(props) {
     const messageInput = document.getElementById('message');
 
     const onSubmit = (data) => {
-        console.log(data);
+        console.log(data);  // Heres the data that should be sent 
         document.getElementById("emailForm").reset();  // Clear form fields
+
+        //Show confirmation modal for x seconds
+        document.getElementById('confirmation').style.display = 'flex';
+        setTimeout(() => {
+            document.getElementById('confirmation').style.display = 'none';
+        }, 2000);
+
+
     }
 
     const showError = (errorMessage, formInput) => {
@@ -234,6 +294,12 @@ function EmailForm(props) {
                 <input type="submit" name="submit" value="SEND" style={ submitBtnSm || submitBtn }/>
 
             </form>
+            <div style={ confirmationMessageSm || confirmationMessage } id='confirmation'>
+                    {
+                        windowWidth <= 600 ? "Sent!" : "Message Sent!"
+                    }
+                    <img src="/images/confirmImg.png" alt="" style={ confirmImgSm || confirmImg }/>
+            </div>
         </div>
     );
 }
