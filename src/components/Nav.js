@@ -159,19 +159,19 @@ function Nav() {
             </Link>
                 <ul style={ navLinks }>
                     <Link style={links} to='/' onClick={() => setCurrentPage("/")}>
-                        <div style={ homeTxt || navLinkText } id="homeNavBtn" >HOME</div>
+                        <div style={ homeTxt } id="homeNavBtn" >HOME</div>
                     </Link>
                     <Link style={links} to='/about' onClick={() => setCurrentPage("/about")}>
-                        <div style={ aboutTxt || navLinkText }>ABOUT</div>
+                        <div style={ aboutTxt }>ABOUT</div>
                     </Link>
                     <Link style={links} to='/services' onClick={() => setCurrentPage("/services")}>
-                        <div style={ servicesTxt || navLinkText }>SERVICES</div>
+                        <div style={ servicesTxt }>SERVICES</div>
                     </Link>
                     <Link style={links} to='/projects' onClick={() => setCurrentPage("/projects")}>
-                        <div style={ projectsTxt || navLinkText }>OUR PROJECTS</div>
+                        <div style={ projectsTxt }>OUR PROJECTS</div>
                     </Link>
                     <Link style={links} to='/contact' onClick={() => setCurrentPage("/contact")}>
-                        <div style={ contactTxt || navLinkText }>CONTACT</div>
+                        <div style={ contactTxt }>CONTACT</div>
                     </Link>
                 </ul>
             </nav>
