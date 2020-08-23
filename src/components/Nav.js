@@ -76,7 +76,7 @@ var navLinkText = {
 }
 
 var highlightLink = {
-    background: 'rgba(255,255,255,.3)',
+    background: 'rgba(255,255,255,.15)',
     color: '#fff',
     fontSize: '13px',
     fontWeight: '400',
