@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import HamburgerNav from './HamburgerNav';
 
 var prevScrollPos = window.pageYOffset;
@@ -63,22 +63,43 @@ const navLinks = {
     padding: '0 5vw 0 0',
 }
 
-const navLinkText = {
+const links = { textDecoration: 'none' }
+
+var navLinkText = {
     color: '#fff',
     fontSize: '13px',
     fontWeight: '400',
     letterSpacing: '1px',
     textDecoration: 'none',
-    padding: '4px 1vw',
+    padding: '4px 1.3vw',
     margin: '0 1.5vw 0 0',
 }
 
-const links = { textDecoration: 'none' }
+var highlightLink = {
+    background: 'rgba(255,255,255,.3)',
+    color: '#fff',
+    fontSize: '13px',
+    fontWeight: '400',
+    letterSpacing: '1px',
+    textDecoration: 'none',
+    padding: '4px 1.3vw',
+    margin: '0 1.5vw 0 0',
+    borderRadius: '10px',
+}
+
+var homeTxt;
+var aboutTxt;
+var servicesTxt;
+var projectsTxt;
+var contactTxt;
+
 
 // ------------
 function Nav() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    
+    const [currentPage, setCurrentPage] = useState(useLocation().pathname);
+
+
     useEffect(() => {
 
         function handleResize() {
@@ -117,33 +138,40 @@ function Nav() {
 
     }, []);
 
+    //  Highlight the nav link for the page the user is currently on.
+    homeTxt = currentPage == '/' ? highlightLink : navLinkText;
+    aboutTxt = currentPage == '/about' ? highlightLink : navLinkText;
+    servicesTxt = currentPage == '/services' ? highlightLink : navLinkText;
+    projectsTxt = currentPage == '/projects' ? highlightLink : navLinkText;
+    contactTxt = currentPage == '/contact' ? highlightLink : navLinkText;
+
     return windowWidth >= 600 ? 
         <div style={navCont} id="navCont">
 
             <div style={ subNav } >
                 <a href="http://www.cbsi.co/ams" style={ subNavLink }>Employee Portal</a>
-                <Link style={ subNavLink } to="/contact">Contact Us</Link>
+                <Link style={ subNavLink } to="/contact" onClick={() => setCurrentPage("/contact")}>Contact Us</Link>
             </div>
 
             <nav style={ nav }>
-            <Link style={ navLogoCont } to='/'>
+            <Link style={ navLogoCont } to='/' onClick={() => setCurrentPage("/")}>
                 <img src="/images/navLogo.png" alt="CBSI" style={ navLogo } />
             </Link>
                 <ul style={ navLinks }>
-                    <Link style={links} to='/'>
-                        <div style={ navLinkText } id="homeNavBtn" >HOME</div>
+                    <Link style={links} to='/' onClick={() => setCurrentPage("/")}>
+                        <div style={ homeTxt || navLinkText } id="homeNavBtn" >HOME</div>
                     </Link>
-                    <Link style={links} to='/about'>
-                        <div style={ navLinkText }>ABOUT</div>
+                    <Link style={links} to='/about' onClick={() => setCurrentPage("/about")}>
+                        <div style={ aboutTxt || navLinkText }>ABOUT</div>
                     </Link>
-                    <Link style={links} to='/services'>
-                        <div style={ navLinkText }>SERVICES</div>
+                    <Link style={links} to='/services' onClick={() => setCurrentPage("/services")}>
+                        <div style={ servicesTxt || navLinkText }>SERVICES</div>
                     </Link>
-                    <Link style={links} to='/projects'>
-                        <div style={ navLinkText }>OUR PROJECTS</div>
+                    <Link style={links} to='/projects' onClick={() => setCurrentPage("/projects")}>
+                        <div style={ projectsTxt || navLinkText }>OUR PROJECTS</div>
                     </Link>
-                    <Link style={links} to='/contact'>
-                        <div style={ navLinkText }>CONTACT</div>
+                    <Link style={links} to='/contact' onClick={() => setCurrentPage("/contact")}>
+                        <div style={ contactTxt || navLinkText }>CONTACT</div>
                     </Link>
                 </ul>
             </nav>
