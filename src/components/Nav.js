@@ -87,12 +87,6 @@ var highlightLink = {
     borderRadius: '10px',
 }
 
-var homeTxt;
-var aboutTxt;
-var servicesTxt;
-var projectsTxt;
-var contactTxt;
-
 
 // ------------
 function Nav() {
@@ -139,11 +133,11 @@ function Nav() {
     }, []);
 
     //  Highlight the nav link for the page the user is currently on.
-    homeTxt = currentPage == '/' ? highlightLink : navLinkText;
-    aboutTxt = currentPage == '/about' ? highlightLink : navLinkText;
-    servicesTxt = currentPage == '/services' ? highlightLink : navLinkText;
-    projectsTxt = currentPage == '/projects' ? highlightLink : navLinkText;
-    contactTxt = currentPage == '/contact' ? highlightLink : navLinkText;
+    var homeTxt = currentPage == '/' ? highlightLink : navLinkText;
+    var aboutTxt = currentPage == '/about' ? highlightLink : navLinkText;
+    var servicesTxt = currentPage == '/services' ? highlightLink : navLinkText;
+    var projectsTxt = currentPage == '/projects' ? highlightLink : navLinkText;
+    var contactTxt = currentPage == '/contact' ? highlightLink : navLinkText;
 
     return windowWidth >= 600 ? 
         <div style={navCont} id="navCont">

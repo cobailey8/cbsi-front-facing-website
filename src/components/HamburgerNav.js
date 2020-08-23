@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const navCont = {
     background: 'linear-gradient(180deg, rgba(0,0,0,1) 11%, rgba(33,33,33,1) 81%)',
@@ -40,6 +40,8 @@ const hbIcon = {
 
 const dropMenu = {
     background: 'linear-gradient( -180deg, rgba(0,0,0,1) 10%, rgba(33,33,33,1) 90%)',
+    background: 'linear-gradient(270deg, rgba(28,28,28,1) 62%, rgba(64,107,171,1) 100%)',
+    background: 'linear-gradient(270deg, rgba(28,28,28,1) 20%, rgba(35,109,221,1) 300%)',
     position: 'fixed',
     top: 0,
     left: 0,
@@ -81,54 +83,78 @@ const navLinkText = {
     display: 'flex',
     justifyContent: 'flex-end',
 }
+const highlightLink = {
+    background: 'rgba(255,255,255,.15)',
+    width: '95%',
+    color: 'white',
+    fontSize: '5vw',
+    padding: '2.5vh 10px 2.5vh 0',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    borderRadius: '0 20px 20px 0',
+}
 
 // ------------
 function HamburgerNav() {
     const [showMenu, setShowMenu] = useState(false);
+    const [currentPage, setCurrentPage] = useState(useLocation().pathname);
 
     let menu;
     let menuMask;
+
+    //  Highlight the nav link for the page the user is currently on.
+    var homeTxt = currentPage == '/' ? highlightLink : navLinkText;
+    var aboutTxt = currentPage == '/about' ? highlightLink : navLinkText;
+    var servicesTxt = currentPage == '/services' ? highlightLink : navLinkText;
+    var projectsTxt = currentPage == '/projects' ? highlightLink : navLinkText;
+    var contactTxt = currentPage == '/contact' ? highlightLink : navLinkText;
+
+    function handleNavigation(toPage) {
+        setShowMenu(false);
+        setCurrentPage(toPage);
+    }
+
     if(showMenu) {
         menu = 
             <div style={ dropMenu }>
-                 <ul style={ navLinks }>
-                    <Link style={links} to='/'  onClick={() => setShowMenu(false)}>
-                        <div style={ navLinkText } id="homeNavBtn" >HOME</div>
+
+                <ul style={ navLinks }>
+                    <Link style={links} to='/' onClick={ () => handleNavigation("/") }>
+                        <div style={ homeTxt }> HOME </div>
                     </Link>
-                    <Link style={links} to='/about' onClick={() => setShowMenu(false)}>
-                        <div style={ navLinkText }>ABOUT</div>
+                    <Link style={links} to='/about' onClick={ () => handleNavigation("/about") }>
+                        <div style={ aboutTxt }> ABOUT </div>
                     </Link>
-                    <Link style={links} to='/services' onClick={() => setShowMenu(false)}>
-                        <div style={ navLinkText }>SERVICES</div>
+                    <Link style={links} to='/services' onClick={ () => handleNavigation("/services") }>
+                        <div style={ servicesTxt }> SERVICES </div>
                     </Link>
-                    <Link style={links} to='/projects' onClick={() => setShowMenu(false)}>
-                        <div style={ navLinkText }>OUR PROJECTS</div>
+                    <Link style={links} to='/projects' onClick={ () => handleNavigation("/projects") }>
+                        <div style={ projectsTxt }> OUR PROJECTS </div>
                     </Link>
-                    <Link style={links} to='/contact' onClick={() => setShowMenu(false)}>
-                        <div style={ navLinkText }>CONTACT</div>
+                    <Link style={links} to='/contact' onClick={ () => handleNavigation("/contact") }>
+                        <div style={ contactTxt }> CONTACT </div>
                     </Link>
                 </ul>
             </div>
 
-        menuMask = 
-            <div style={ mask } onClick={() => setShowMenu(false)}> 
-            a
-            </div>
+        menuMask = <div style={ mask } onClick={() => setShowMenu(false)}></div>
     }
 
     return (
         <header style={ navCont }>
             { menuMask }
             <nav style={ nav }>
-                <Link style={ navLogoCont } to='/'>
+
+                <Link style={ navLogoCont } to='/' onClick={ () => handleNavigation("/") }>
                     <img src="/images/navLogo.png" alt="CBSI" style={ navLogo } />
                 </Link>
-                <div style={ hbIconCont } onClick={() => setShowMenu(!showMenu)}>
+
+                <div style={ hbIconCont } onClick={() => setShowMenu(true)}>
                     <img src="/images/hbIcon.png" alt="Navigation Options" style={ hbIcon } />
                 </div>
                 
             </nav>
-
+            
             { menu }
 
         </header>
