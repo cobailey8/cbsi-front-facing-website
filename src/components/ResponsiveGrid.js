@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import LinkingInfoCard from './LinkingInfoCard';
+import ImageCard from './ImageCard';
 
 const responsiveGrid = {
     backgroundColor: 'rgba(63, 73, 83, 1)',
     margin: 0,
-    padding: '0 40px 5vw 40px',
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
 }
@@ -32,10 +32,11 @@ const body = {
 }
 
 const gridItem = {
+
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    padding: '2vw',
+    // alignItems: 'center',
+    padding: '2vw 0',
 }
 
 function ResponsiveGrid(props) {
@@ -55,9 +56,14 @@ function ResponsiveGrid(props) {
 
     }, []);
 
+    var dataArr = [];
+    Object.keys(props.jsonData).forEach(key => dataArr.push(props.jsonData[key]));
+
     var headingR;
     var contR;
+    var bodyR;
     if(windowWidth < 600) {
+
         headingR = {
             color: '#fff',
             fontSize: '4.5vw',
@@ -68,6 +74,13 @@ function ResponsiveGrid(props) {
             WebkitTextStrokeColor: '#eff',
             textShadow: '1px 1px rgba( 0, 0, 0, .3 )',
         }
+
+        bodyR = {
+            display: 'grid',
+            gridTemplateColumns: 'repeat( auto-fit, minmax(160px, 1fr) )',
+            width: '100%',
+        }
+
     }else if(windowWidth > 1280){
         headingR = {
             color: '#fff',
@@ -84,31 +97,35 @@ function ResponsiveGrid(props) {
         }
     }
 
-    var dataArr = [];
-    Object.keys(props.jsonData).forEach(key => dataArr.push(props.jsonData[key]));
+    var expandBtn;
+
+    
 
     return (
         <div style={ responsiveGrid } >
             <div style={contR || cont}>
                 <div style={ headingR || heading }>{props.heading}</div>
-                <div style={ body }>
+                <div style={ bodyR || body }>
                 {
                     //Output a Modal component for each object in dataArr
                     dataArr.map(item => 
                         <div style={ gridItem } key={ item.id }>
-                            <LinkingInfoCard 
-                                id = {item.id}
+                            <ImageCard 
+                                keyx={ item.id }
                                 image={ item.image } 
                                 heading={ item.heading } 
                                 text={ item.text } 
                                 buttonTxt={ item.buttonTxt } 
                                 link={ item.link }
+                                style={ {background: 'yellow'} }
                             />
                         </div>
                     )
                 }
                 </div>
+
             </div>
+            {expandBtn}
         </div>
     );
 }
