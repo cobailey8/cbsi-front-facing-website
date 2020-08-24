@@ -74,14 +74,11 @@ function ImageInfoBlock(props) {
     }, []);
 
     // Dark theme or light theme based on props. default is light.
-    var color = props.isDark 
-        ? { background: 'rgba(63, 73, 83, 1)', color: 'white' } 
-        : { background: '', color: 'rgba(44,42,41)' };
+    var color = props.isDark ? { background: 'rgba(63, 73, 83, 1)', color: 'white' } : { background: '', color: 'rgba(44,42,41)' };
     
-    imageInfoBlock = {
-        ...imageInfoBlock,
-        ...color
-    }
+    //  Append color object to the imageInfoBlock object styling
+    imageInfoBlock = {...imageInfoBlock, ...color}
+    imageInfoBlock.padding = '2vw';
 
 
     // Display right to left, or left to right based on the 'flip' prop. Also takes care of mobile styling
@@ -89,6 +86,7 @@ function ImageInfoBlock(props) {
     var headerContBlockR;
     var textContBlockR;
     if(windowWidth < 600){  // 'flip' prop doesn't matter here becauuse flexDirection has to be set to 'column'
+        imageInfoBlock.padding = '2vw 2vw 5vw 2vw';
 
         cont = { ...cont, flexDirection: 'column' };
 
@@ -121,6 +119,7 @@ function ImageInfoBlock(props) {
     }
 
     if(windowWidth >= 1280) {
+
         headerContBlockR = {
             width: '90%',
             minWidth: '600px',
